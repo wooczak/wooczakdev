@@ -1,0 +1,109 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  date: string;
+  name: string;
+  shortDesc: string;
+  technologies: ("js" | "ts" | "react")[];
+}
+
+const { date, name, shortDesc, technologies } = Astro.props;
+
+const iconMap = {
+  js: {
+    name: "mdi:nodejs",
+    color: "#F0DB4F",
+  },
+  ts: {
+    name: "mdi:language-typescript",
+    color: "#3178C6",
+  },
+  react: {
+    name: "mdi:react",
+    color: "#61DAFB",
+  },
+};
+---
+
+<div class="blog-post-link">
+  <div>
+    <p class="date">{date}</p>
+    <p class="title">{name}</p>
+    <div class="related-with">
+      <p>Related with:</p>
+      {
+        technologies.map((tech) => (
+          <Icon
+            name={iconMap[tech].name}
+            color={iconMap[tech].color}
+            size={20}
+          />
+        ))
+      }
+    </div>
+    <p class="desc">{shortDesc}</p>
+  </div>
+
+  <div class="read-more">
+    <p>Read more</p>
+    <Icon name="mdi:arrow-collapse-right" />
+  </div>
+</div>
+
+<style>
+  .blog-post-link {
+    border: 1px solid var(--primary-white);
+    border-radius: 0.5em;
+    padding: 1rem;
+    position: relative;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--primary-black);
+  }
+
+  .blog-post-link:after {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-image: var(--main-gradient);
+    position: absolute;
+    top: 6px;
+    right: -6px;
+    z-index: -1;
+    border-radius: 0.5em;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .date {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    margin-bottom: 0.25rem;
+    color: var(--primary-purple);
+    letter-spacing: 0.25ch;
+  }
+
+  .read-more {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    font-style: italic;
+  }
+
+  .related-with {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 1rem;
+    margin-top: 0.25rem;
+  }
+</style>

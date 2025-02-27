@@ -1,0 +1,117 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section id="hero">
+  <h1>HI, I'M<br />WOOCZAK.DEV</h1>
+  <h2>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam quia
+    repudiandae ratione voluptatem necessitatibus, amet cum molestias reiciendis
+    sit, facere nulla accusamus. At voluptate id voluptatem saepe sit explicabo
+    dicta!
+  </h2>
+  <section id="hero-social-media">
+    <a href="http://github.com/wooczak" target="_blank">
+      <Icon name="mdi:github" size="24" />
+      <p>GitHub</p>
+    </a>
+    <a href="http://github.com/wooczak" target="_blank">
+      <Icon name="mdi:linkedin" size="24" />
+      <p>LinkedIn</p>
+    </a>
+    <a href="http://github.com/wooczak" target="_blank">
+      <Icon name="mdi:tray-download" size="24" />
+
+      <p>Download CV</p>
+    </a>
+  </section>
+</section>
+
+<style>
+  #hero {
+    padding-block: 2rem;
+    font-family: "Rethink Sans", sans-serif;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-size: 100% 100%;
+    }
+    10% {
+      background-size: 120% 120%;
+    }
+    20% {
+      background-size: 180% 180%;
+    }
+    30% {
+      background-size: 250% 250%;
+    }
+    40% {
+      background-size: 220% 220%;
+    }
+    50% {
+      background-size: 300% 300%;
+    }
+    60% {
+      background-size: 270% 270%;
+    }
+    70% {
+      background-size: 200% 200%;
+    }
+    80% {
+      background-size: 230% 230%;
+    }
+    90% {
+      background-size: 150% 150%;
+    }
+    100% {
+      background-size: 100% 100%;
+    }
+  }
+
+  h1 {
+    font-weight: 900;
+    font-size: 4em;
+    word-break: break-all;
+    font-family: "Cabinet Grotesk", sans-serif;
+    line-height: 0.85em;
+    background-image: rgb(41, 62, 249);
+    background-image: rgb(41, 62, 249);
+    background-image: -moz-var(--main-gradient);
+    background-image: -webkit-var(--main-gradient);
+    background-image: var(--main-gradient);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#293ef9",endColorstr="#e1f967",GradientType=1);
+    background-clip: text;
+    background-size: 100%;
+    animation: gradient 5s ease-in-out infinite reverse;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  }
+
+  h2 {
+    font-size: 1rem;
+    color: var(--primary-white);
+    font-family: "Rethink Sans", sans-serif;
+    font-weight: 400;
+    line-height: 1.5em;
+    margin-block: 1rem;
+  }
+
+  #hero-social-media,
+  #hero-social-media a {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  #hero-social-media a {
+    padding: 0.5em;
+    gap: 0.5em;
+    border: 1px solid var(--primary-white);
+    border-radius: 0.5em;
+  }
+</style>

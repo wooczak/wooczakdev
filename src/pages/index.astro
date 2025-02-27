@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BlogPostLink from "../components/BlogPostLink.astro";
+import Navigation from "../sections/Navigation.astro";
+import Hero from "../sections/Hero.astro";
+import LatestBlogPosts from "../sections/LatestBlogPosts.astro";
+import ExperienceOverview from "../sections/ExperienceOverview.astro";
+---
+
+<Layout>
+  <Navigation />
+  <main>
+    <Hero />
+    <LatestBlogPosts>
+      <BlogPostLink
+        date="19 Jan 2025"
+        name="Multi-threaded problems in a single-threaded world"
+        shortDesc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit numquam, nihil porro dignissimos rerum molestias esse cumque quos ipsam unde?"
+        technologies={["js", "react"]}
+      />
+      <BlogPostLink
+        date="25 Feb 2025"
+        name="Understanding Asynchronous JavaScript"
+        shortDesc="Dive deep into the world of asynchronous programming in JavaScript and learn how to manage async operations effectively."
+        technologies={["js"]}
+      />
+    </LatestBlogPosts>
+    <ExperienceOverview />
+  </main>
+</Layout>
