@@ -1,0 +1,19 @@
+---
+import ContactForm from "../components/ContactForm/ContactForm";
+import SectionHeading from "../components/SectionHeading.astro";
+---
+
+<section>
+  <SectionHeading title="Contact" />
+  <p id="contact-small-heading">
+    Let's discuss whatever you need! Lorem ipsum dolor, sit amet consectetur
+    adipisicing elit. Quo, recusandae!
+  </p>
+  <ContactForm client:visible />
+</section>
+
+<style>
+    #contact-small-heading {
+        margin-block: 1rem;
+    }
+</style>

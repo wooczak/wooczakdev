@@ -22,8 +22,11 @@
   :root {
     --primary-black: #181818;
     --primary-white: #fff;
-    --primary-purple: #BA7AFE;
-    --primary-green: #AEE67F;
+    --primary-purple: #ba7afe;
+    --primary-green: #aee67f;
+    --primary-green-disabled: #aee67f80;
+    --error-bg: #ff4d4f;
+    --error-text: #fff;
     --main-gradient: radial-gradient(
       circle,
       rgba(41, 62, 249, 1) 6%,
@@ -31,16 +34,6 @@
       rgba(81, 238, 221, 1) 75%,
       rgba(225, 249, 103, 1) 100%
     );
-  }
-
-  body {
-    background-color: var(--primary-black);
-    padding: 1rem;
-  }
-
-  a {
-    text-decoration: none;
-    color: var(--primary-white);
   }
 
   @font-face {
@@ -105,4 +98,22 @@
     font-weight: 700;
     font-style: normal;
   }
+
+  body {
+    background-color: var(--primary-black);
+    color: var(--primary-white);
+    padding: 1rem;
+    font-family: "Cabinet Grotesk", sans-serif;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--primary-white);
+    font-family: inherit;
+  }
+
+  section {
+    margin-block: 2rem;
+  }
+  
 </style>

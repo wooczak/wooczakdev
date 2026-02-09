@@ -1,0 +1,74 @@
+---
+import ReviewBlock from "../components/ReviewBlock.astro";
+import '@glidejs/glide/dist/css/glide.core.min.css';
+---
+
+<section>
+  <span id="reviews-spantext">Reviews</span>
+  <h1>My work has been appreciated by many</h1>
+  <div class="glide">
+    <div class="glide__track" data-glide-el="track">
+      <ul class="glide__slides">
+        <ReviewBlock
+          review="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit numquam, nihil porro dignissimos rerum molestias esse cumque quos ipsam unde?"
+          author="John Doe"
+        />
+        <ReviewBlock
+          review="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit numquam, nihil porro dignissimos rerum molestias esse cumque quos ipsam unde?"
+          author="John Doe"
+        />
+        <ReviewBlock
+          review="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit numquam, nihil porro dignissimos rerum molestias esse cumque quos ipsam unde?"
+          author="John Doe"
+        />
+        <ReviewBlock
+          review="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit numquam, nihil porro dignissimos rerum molestias esse cumque quos ipsam unde?"
+          author="John Doe"
+        />
+        <ReviewBlock
+          review="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit numquam, nihil porro dignissimos rerum molestias esse cumque quos ipsam unde?"
+          author="John Doe"
+        />
+        <ReviewBlock
+          review="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit numquam, nihil porro dignissimos rerum molestias esse cumque quos ipsam unde?"
+          author="John Doe"
+        />
+        <ReviewBlock
+          review="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit numquam, nihil porro dignissimos rerum molestias esse cumque quos ipsam unde?"
+          author="John Doe"
+        />
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  .glide {
+    margin-inline: -1rem;
+    width: 100vw;
+  }
+  
+  #reviews-spantext {
+    color: var(--primary-purple);
+    letter-spacing: 3px;
+  }
+</style>
+
+<script>
+  import Glide from '@glidejs/glide'
+
+  new Glide(".glide", {
+    type: "slider",
+    autoplay: 1 / 60,
+    startAt: 2,
+    animationDuration: window.innerWidth * 10,
+    peek: { before: 50, after: 50 },
+    gap: 20,
+    animationTimingFunc: "linear",
+    hoverpause: true,
+  }).mount();
+</script>

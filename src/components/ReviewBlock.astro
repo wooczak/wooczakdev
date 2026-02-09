@@ -1,0 +1,72 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  review: string;
+  author: string;
+}
+
+const { review, author } = Astro.props;
+---
+
+<li class="glide__slide">
+  <blockquote>
+    {review}
+  </blockquote>
+  <p class="glide__slide-author">- {author}</p>
+  <a
+    class="glide__slide-link"
+    href="#"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    open externally
+    <Icon
+      name="mdi:open-in-new"
+      width="16"
+      height="16"
+      style="color: #BA7AFE"
+    />
+  </a>
+</li>
+
+<style>
+  .glide__slide {
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+    margin-block: 1rem;
+    border: 1px solid var(--primary-white);
+    padding: 1rem;
+    border-radius: 0.25rem;
+    opacity: 0.75;
+    transition: opacity 0.25s ease-in-out;
+  }
+
+  .glide__slide:hover,
+  .glide__slide:focus,
+  .glide__slide:active {
+    opacity: 1;
+  }
+
+  .glide__slide-author,
+  .glide__slide-link {
+    align-self: flex-end;
+  }
+
+  .glide__slide-author {
+    font-style: italic;
+    opacity: 0.75;
+  }
+
+  .glide__slide-link {
+    margin-top: 1rem;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--primary-purple);
+    padding: 0.1rem;
+  }
+ </style>

@@ -139,6 +139,31 @@ nav {
   animation: hideToRight 0.5s ease-in-out forwards;
   animation-delay: 0.7s;
 
+  .you-are-here {
+    display: none;
+    opacity: 0;
+    
+    &.active {
+      display: inline-block;
+      color: var(--primary-purple);
+      font-size: 0.4em;
+      font-style: italic;
+      margin-right: 1rem;
+      position: relative;
+      opacity: 0.7;
+      
+
+      &:after {
+        content: "";
+        height: 1px;
+        background-color: var(--primary-purple);
+        display: block;
+        position: absolute;
+        width: 175%;
+      }
+    }
+  }
+
   li {
     &:first-of-type {
       opacity: 1;
