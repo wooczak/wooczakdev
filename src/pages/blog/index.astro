@@ -1,0 +1,121 @@
+---
+import BlogPostLink from "../../components/BlogPostLink.astro";
+import GoBackHome from "../../components/GoBackHome.astro";
+import LinkButton from "../../components/LinkButton.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import Layout from "../../layouts/Layout.astro";
+import type { Post } from "./posts/types";
+
+const posts = Object.values(
+  import.meta.glob("./posts/*.md", { eager: true }),
+) as Post[];
+
+const allTechnologies = posts.reduce((acc: string[], post) => {
+  const techs = post.frontmatter.technologies;
+  return [...acc, ...techs];
+}, []);
+---
+
+<Layout>
+  <main id="blog-main">
+    <GoBackHome />
+    <SectionHeading title="All blog posts" />
+    <section id="blog-filters">
+      <p>Filter by technology:</p>
+      <ul id="technology-filters">
+        <li>
+          {
+            Array.from(new Set(allTechnologies)).map((tech) => (
+              <LinkButton
+                text={tech}
+                borderColor="primary-green"
+                fontWeight="bold"
+                href="#"
+              />
+            ))
+          }
+        </li>
+      </ul>
+    </section>
+    <section>
+      <ul id="blog-posts-list">
+        {
+          posts?.map((post) => (
+            <li data-tech={post.frontmatter.technologies.join(",")}>
+              <BlogPostLink
+                date={post.frontmatter?.date}
+                name={post.frontmatter?.title}
+                shortDesc={post.frontmatter?.description}
+                technologies={post.frontmatter?.technologies}
+                readMoreLink={`/blog/${post.frontmatter?.slug}`}
+              />
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  #blog-main {
+    margin-block: 2rem;
+
+    li {
+      list-style: none;
+    }
+  }
+
+  #blog-filters {
+    margin-block: 1rem;
+  }
+
+  #blog-posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  #technology-filters {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.75rem;
+
+    li {
+      display: flex;
+      gap: 0.75rem;
+      cursor: pointer;
+    }
+  }
+</style>
+
+<script>
+  const filters = document.querySelectorAll("#technology-filters .link-button");
+  const posts = document.querySelectorAll<HTMLElement>("#blog-posts-list li");
+
+  const activeFilters = new Set();
+
+  filters.forEach((filter) => {
+    filter.addEventListener("click", (e) => {
+      e.preventDefault();
+      const tech = filter.textContent.trim();
+
+      if (activeFilters.has(tech)) {
+        activeFilters.delete(tech);
+        filter.classList.remove("active");
+      } else {
+        activeFilters.add(tech);
+        filter.classList.add("active");
+      }
+
+      posts.forEach((post) => {
+        const postTechs = post.getAttribute("data-tech")!.split(",");
+        const isVisible = Array.from(activeFilters).every((filter) =>
+          postTechs.includes(filter as string),
+        );
+        post.style.display = isVisible ? "block" : "none";
+      });
+    });
+  });
+</script>

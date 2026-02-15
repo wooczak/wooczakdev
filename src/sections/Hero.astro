@@ -1,29 +1,36 @@
 ---
-import { Icon } from "astro-icon/components";
+import LinkButton from "../components/LinkButton.astro";
 ---
 
 <section id="hero">
-  <h1>NEVER<br/>SETTLE</h1>
-  <h2>
+  <h1>NEVER<br />SETTLE</h1>
+  <p>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam quia
     repudiandae ratione voluptatem necessitatibus, amet cum molestias reiciendis
     sit, facere nulla accusamus. At voluptate id voluptatem saepe sit explicabo
     dicta!
-  </h2>
+  </p>
   <section id="hero-social-media">
-    <a href="http://github.com/wooczak" target="_blank">
-      <Icon name="mdi:github" size="24" />
-      <p>GitHub</p>
-    </a>
-    <a href="http://github.com/wooczak" target="_blank">
-      <Icon name="mdi:linkedin" size="24" />
-      <p>LinkedIn</p>
-    </a>
-    <a href="http://github.com/wooczak" target="_blank">
-      <Icon name="mdi:tray-download" size="24" />
-
-      <p>Download CV</p>
-    </a>
+    <LinkButton
+      href="http://github.com/wooczak"
+      iconName="mdi:github"
+      text="GitHub"
+    />
+    <LinkButton
+      href="http://github.com/wooczak"
+      iconName="mdi:github"
+      text="GitHub"
+    />
+    <LinkButton
+      href="http://github.com/wooczak"
+      iconName="mdi:linkedin"
+      text="LinkedIn"
+    />
+    <LinkButton
+      href="http://github.com/wooczak"
+      iconName="mdi:tray-download"
+      text="Download CV"
+    />
   </section>
 </section>
 
@@ -91,27 +98,10 @@ import { Icon } from "astro-icon/components";
     -moz-text-fill-color: transparent;
   }
 
-  h2 {
-    font-size: 1rem;
-    color: var(--primary-white);
-    font-family: "Rethink Sans", sans-serif;
-    font-weight: 400;
-    line-height: 1.5em;
-    margin-block: 1rem;
-  }
-
-  #hero-social-media,
-  #hero-social-media a {
+  #hero-social-media {
     display: flex;
     align-items: center;
     gap: 1rem;
     flex-wrap: wrap;
-  }
-
-  #hero-social-media a {
-    padding: 0.5em;
-    gap: 0.5em;
-    border: 1px solid var(--primary-white);
-    border-radius: 0.5em;
   }
 </style>

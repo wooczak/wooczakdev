@@ -14,7 +14,7 @@ import "./Navigation.scss";
   </div>
   <ul id="mobile-nav">
     <li><div class="you-are-here"></div>Home</li>
-    <li><div class="you-are-here"></div>Blog</li>
+    <li><div class="you-are-here"></div><a href="/blog">Blog</a></li>
     <li><div class="you-are-here"></div>About me</li>
     <li><div class="you-are-here"></div>Contact</li>
     <li>
@@ -28,7 +28,7 @@ import "./Navigation.scss";
 </nav>
 
 <script>
-import { Route } from "../lib/constants";
+  import { Route } from "../lib/constants";
 
   const hamburger = document.querySelector(".hamburger");
   const mobileNav = document.querySelector("#mobile-nav");
@@ -50,11 +50,11 @@ import { Route } from "../lib/constants";
           break;
         case Route.BLOG:
           youAreHere[1].classList.add("active");
+          youAreHere[1].textContent = "You are here";
           break;
         default:
           break;
       }
     }
-    
   });
 </script>

@@ -1,25 +1,27 @@
 ---
 import { Icon } from "astro-icon/components";
+import type { Technology } from "../pages/blog/posts/types";
 
 interface Props {
   date: string;
   name: string;
   shortDesc: string;
-  technologies: ("js" | "ts" | "react")[];
+  technologies: Technology[];
+  readMoreLink?: string;
 }
 
-const { date, name, shortDesc, technologies } = Astro.props;
+const { date, name, shortDesc, technologies, readMoreLink } = Astro.props;
 
-const iconMap = {
-  js: {
+const iconMap: Record<Technology, { name: string; color: string }> = {
+  JavaScript: {
     name: "mdi:nodejs",
     color: "#F0DB4F",
   },
-  ts: {
+  TypeScript: {
     name: "mdi:language-typescript",
     color: "#3178C6",
   },
-  react: {
+  React: {
     name: "mdi:react",
     color: "#61DAFB",
   },
@@ -46,18 +48,18 @@ const iconMap = {
   </div>
 
   <div class="read-more">
-    <p>Read more</p>
-    <Icon name="mdi:arrow-collapse-right" />
+    <a href={readMoreLink}>
+      <p>Read more</p>
+      <Icon name="mdi:arrow-collapse-right" />
+    </a>
   </div>
 </div>
 
 <style>
   .blog-post-link {
     border: 1px solid var(--primary-white);
-    border-radius: 0.5em;
     padding: 1rem;
     position: relative;
-    height: 350px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -74,7 +76,6 @@ const iconMap = {
     top: 6px;
     right: -6px;
     z-index: -1;
-    border-radius: 0.5em;
   }
 
   .title {

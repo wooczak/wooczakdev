@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import SectionHeading from "../components/SectionHeading.astro";
+import LinkButton from "../components/LinkButton.astro";
 ---
 
 <section id="exp-overview">
@@ -31,7 +32,7 @@ import SectionHeading from "../components/SectionHeading.astro";
         <p>Collaborated with the design team to improve the user experience</p>
       </li>
     </ul>
-    <button class="exp-block__button">see more details</button>
+    <LinkButton text="see more details" borderColor="primary-green" fontWeight="bold" href="#" />
   </div>
   <span id="exp-block-divider"></span>
   <div class="exp-block">
@@ -60,7 +61,7 @@ import SectionHeading from "../components/SectionHeading.astro";
         <p>Collaborated with the design team to improve the user experience</p>
       </li>
     </ul>
-    <button class="exp-block__button">see more details</button>
+    <LinkButton text="see more details" borderColor="primary-green" fontWeight="bold" href="#" />
   </div>
 </section>
 
@@ -112,6 +113,7 @@ import SectionHeading from "../components/SectionHeading.astro";
     display: flex;
     flex-direction: column;
     gap: 1rem;
+        margin-bottom: 1rem;
   }
 
   .exp-block__list li {
@@ -120,18 +122,6 @@ import SectionHeading from "../components/SectionHeading.astro";
     grid-template-rows: auto;
     align-items: center;
     margin-block: 0.25rem;
-  }
-
-  .exp-block__button {
-    border: 1px solid var(--primary-green);
-    background-color: transparent;
-    color: var(--primary-white);
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-top: 1rem;
   }
 
   #exp-block-divider {

@@ -53,7 +53,7 @@ export default function ContactForm() {
         }
       ></textarea>
       <button
-        className={`${styles.submitBtn} ${areErrors ? styles["submitBtn--disabled"] : ""}`}
+        className={`action-btn ${areErrors ? "action-btn--disabled" : ""}`}
         disabled={areErrors}
         type="submit"
       >

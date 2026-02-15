@@ -1,0 +1,59 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  href?: string;
+  iconName?: string;
+  iconSize?: number;
+  borderColor?: "primary-white" | "primary-green";
+  text: string;
+  fontWeight?: "normal" | "bold";
+  style?: Record<string, string>;
+}
+
+const { href, iconName, iconSize, borderColor, text, fontWeight, style } =
+  Astro.props;
+---
+
+<a
+  href={href}
+  target="_blank"
+  class={`link-button ${borderColor || "primary-white"} ${fontWeight || "normal"}`}
+  style={style}
+>
+  {iconName ? <Icon name={iconName} size={iconSize || 20} /> : null}
+  <p>{text}</p>
+</a>
+
+<style>
+  .link-button {
+    &.active {
+      background-color: var(--primary-green);
+      color: var(--primary-black);
+    }
+
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 0.5em;
+    gap: 0.5em;
+    border: 1px solid;
+
+    &.primary-white {
+      border-color: var(--primary-white);
+    }
+
+    &.primary-green {
+      border-color: var(--primary-green);
+    }
+
+    &.normal {
+      font-weight: normal;
+    }
+
+    &.bold {
+      font-weight: 700;
+    }
+  }
+</style>

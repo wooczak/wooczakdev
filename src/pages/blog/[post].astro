@@ -1,0 +1,35 @@
+---
+import type { GetStaticPaths, MarkdownInstance } from "astro";
+import Layout from "../../layouts/Layout.astro";
+
+interface Frontmatter {
+  title: string;
+  description?: string;
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const posts = import.meta.glob<MarkdownInstance<Frontmatter>>("./posts/*.md");
+
+  return Object.keys(posts).map((path) => {
+    const post = path.split("/").pop()?.replace(".md", "");
+    return {
+      params: { post },
+    };
+  });
+};
+
+const { post } = Astro.params;
+
+const posts = import.meta.glob<MarkdownInstance<Frontmatter>>("./posts/*.md");
+
+const postPath = `./posts/${post}.md`;
+
+const postModule = await posts[postPath]!();
+const { Content } = postModule;
+---
+
+<Layout>
+  <main id="blog-post-main">
+    <Content />
+  </main>
+</Layout>
