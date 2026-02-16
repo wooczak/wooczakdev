@@ -13,6 +13,7 @@
     "@glidejs/glide": "^3.7.1",
     "@types/react": "^19.2.13",
     "@types/react-dom": "^19.2.3",
+    "animejs": "^4.3.6",
     "astro": "^5.1.7",
     "astro-icon": "^1.1.5",
     "react": "^19.2.4",
