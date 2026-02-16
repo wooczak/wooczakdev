@@ -47,7 +47,7 @@ const allTechnologies = posts.reduce((acc: string[], post) => {
                 name={post.frontmatter?.title}
                 shortDesc={post.frontmatter?.description}
                 technologies={post.frontmatter?.technologies}
-                readMoreLink={`/blog/${post.frontmatter?.slug}`}
+                readMoreLink={`/wooczakdev/blog/${post.frontmatter?.slug}`}
               />
             </li>
           ))
@@ -91,9 +91,12 @@ const allTechnologies = posts.reduce((acc: string[], post) => {
   }
 
   @media screen and (min-width: 680px) {
-    #latest-blog-posts-list {
+    #blog-posts-list {
       flex-direction: row;
       flex-wrap: wrap;
+      & > li {
+        width: calc(50% - 1rem);
+      } 
     }
   }
 </style>

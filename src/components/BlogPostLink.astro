@@ -29,30 +29,30 @@ const iconMap: Record<Technology, { name: string; color: string }> = {
 ---
 
 <div class="blog-post-link">
-  <div>
-    <p class="date">{date}</p>
-    <p class="title">{name}</p>
-    <div class="related-with">
-      <p>Related with:</p>
-      {
-        technologies.map((tech) => (
-          <Icon
-            name={iconMap[tech].name}
-            color={iconMap[tech].color}
-            size={20}
-          />
-        ))
-      }
+  <a href={readMoreLink}>
+    <div>
+      <p class="date">{date}</p>
+      <p class="title">{name}</p>
+      <div class="related-with">
+        <p>Related with:</p>
+        {
+          technologies.map((tech) => (
+            <Icon
+              name={iconMap[tech].name}
+              color={iconMap[tech].color}
+              size={20}
+            />
+          ))
+        }
+      </div>
+      <p class="desc">{shortDesc}</p>
     </div>
-    <p class="desc">{shortDesc}</p>
-  </div>
 
-  <div class="read-more">
-    <a href={readMoreLink}>
+    <div class="read-more">
       <p>Read more</p>
       <Icon name="mdi:arrow-collapse-right" />
-    </a>
-  </div>
+    </div>
+  </a>
 </div>
 
 <style>
@@ -64,47 +64,72 @@ const iconMap: Record<Technology, { name: string; color: string }> = {
     flex-direction: column;
     justify-content: space-between;
     background-color: var(--primary-black);
-  }
+    cursor: pointer;
+    transition: all 0.3s ease;
 
-  .blog-post-link:after {
-    content: "";
-    display: block;
-    height: 100%;
-    width: 100%;
-    background-image: var(--main-gradient);
-    position: absolute;
-    top: 6px;
-    right: -6px;
-    z-index: -1;
-  }
+    &:after {
+      content: "";
+      display: block;
+      height: 100%;
+      width: 100%;
+      background-image: var(--main-gradient);
+      position: absolute;
+      top: 6px;
+      right: -6px;
+      z-index: -1;
+    }
 
-  .title {
-    font-size: 1.5rem;
-    font-weight: 600;
-  }
+    .title {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
 
-  .date {
-    font-size: 0.8rem;
-    margin-bottom: 1rem;
-    margin-bottom: 0.25rem;
-    color: var(--primary-purple);
-    letter-spacing: 0.25ch;
-  }
+    .date {
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+      margin-bottom: 0.25rem;
+      color: var(--primary-purple);
+      letter-spacing: 0.25ch;
+    }
 
-  .read-more {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 1rem;
-    font-style: italic;
-  }
+    .read-more {
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+      font-style: italic;
 
-  .related-with {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    margin-bottom: 1rem;
-    margin-top: 0.25rem;
+      & > a {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+      }
+    }
+
+    .related-with {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      margin-bottom: 1rem;
+      margin-top: 0.25rem;
+    }
+
+    &:hover {
+      background-color: var(--primary-green);
+      color: var(--primary-black);
+
+      .related-with > svg {
+        color: var(--primary-black);
+      }
+      .date,
+      .read-more > a,
+      p,
+      svg {
+        color: var(--primary-black);
+      }
+    }
   }
 </style>

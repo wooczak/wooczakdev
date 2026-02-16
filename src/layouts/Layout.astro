@@ -46,63 +46,63 @@ import Navigation from "../sections/Navigation.astro";
 
   @font-face {
     font-family: "Cabinet Grotesk";
-    src: url("/fonts/CabinetGrotesk-Black.woff2") format("woff2");
+    src: url("/wooczakdev/fonts/CabinetGrotesk-Black.woff2") format("woff2");
     font-weight: 900;
     font-style: normal;
   }
 
   @font-face {
     font-family: "Cabinet Grotesk";
-    src: url("/fonts/CabinetGrotesk-Bold.woff2") format("woff2");
+    src: url("/wooczakdev/fonts/CabinetGrotesk-Bold.woff2") format("woff2");
     font-weight: 700;
     font-style: normal;
   }
 
   @font-face {
     font-family: "Cabinet Grotesk";
-    src: url("/fonts/CabinetGrotesk-Extrabold.woff2") format("woff2");
+    src: url("/wooczakdev/fonts/CabinetGrotesk-Extrabold.woff2") format("woff2");
     font-weight: 800;
     font-style: normal;
   }
 
   @font-face {
     font-family: "Cabinet Grotesk";
-    src: url("/fonts/CabinetGrotesk-Light.woff2") format("woff2");
+    src: url("/wooczakdev/fonts/CabinetGrotesk-Light.woff2") format("woff2");
     font-weight: 300;
     font-style: normal;
   }
 
   @font-face {
     font-family: "Cabinet Grotesk";
-    src: url("/fonts/CabinetGrotesk-Medium.woff2") format("woff2");
+    src: url("/wooczakdev/fonts/CabinetGrotesk-Medium.woff2") format("woff2");
     font-weight: 500;
     font-style: normal;
   }
 
   @font-face {
     font-family: "Cabinet Grotesk";
-    src: url("/fonts/CabinetGrotesk-Regular.woff2") format("woff2");
+    src: url("/wooczakdev/fonts/CabinetGrotesk-Regular.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
   }
 
   @font-face {
     font-family: "Rethink Sans";
-    src: url("/fonts/RethinkSans-Regular.ttf") format("truetype");
+    src: url("/wooczakdev/fonts/RethinkSans-Regular.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
   }
 
   @font-face {
     font-family: "Rethink Sans";
-    src: url("/fonts/RethinkSans-SemiBold.ttf") format("truetype");
+    src: url("/wooczakdev/fonts/RethinkSans-SemiBold.ttf") format("truetype");
     font-weight: 600;
     font-style: normal;
   }
 
   @font-face {
     font-family: "Rethink Sans";
-    src: url("/fonts/RethinkSans-Bold.ttf") format("truetype");
+    src: url("/wooczakdev/fonts/RethinkSans-Bold.ttf") format("truetype");
     font-weight: 700;
     font-style: normal;
   }
@@ -137,6 +137,19 @@ import Navigation from "../sections/Navigation.astro";
     cursor: pointer;
     transition: background-color 0.3s;
 
+    & > a {
+      color: var(--primary-black);
+    }
+
+    &:hover {
+      background-color: var(--primary-purple);
+      color: var(--primary-white);
+
+      & > a {
+        color: var(--primary-white);
+      }
+    }
+
     &--disabled {
       background-image: var(--primary-green-disabled);
       cursor: not-allowed;
@@ -152,6 +165,4 @@ import Navigation from "../sections/Navigation.astro";
   section {
     margin-block: 2rem;
   }
-
-  
 </style>
