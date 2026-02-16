@@ -4,7 +4,9 @@ import SectionHeading from "../components/SectionHeading.astro";
 
 <section id="latest-blog-posts">
   <SectionHeading title="Latest blog posts" />
-  <slot />
+  <div id="latest-blog-posts-list">
+    <slot />
+  </div>
   <button class="action-btn">Show all posts</button>
 </section>
 
@@ -16,5 +18,12 @@ import SectionHeading from "../components/SectionHeading.astro";
     display: flex;
     flex-direction: column;
     gap: 1rem;
+  }
+
+  @media (min-width: 680px) {
+    #latest-blog-posts-list {
+      display: flex;
+      gap: 1rem;
+    }
   }
 </style>

@@ -1,18 +1,38 @@
 ---
+import { Icon } from "astro-icon/components";
 import "./Navigation.scss";
 ---
 
 <nav>
   <p class="title">Kacper<span>Łuczak</span></p>
-  <div class="theme-toggle">
-    <span></span>
-  </div>
-  <div class="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
+  <div class="nav-controls">
+    <div class="theme-toggle-wrapper">
+      <Icon name="mdi:white-balance-sunny" />
+      <div class="theme-toggle">
+      <span></span>
+      </div>
+      <Icon name="mdi:moon-waning-crescent" />
+    </div>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </div>
   <ul id="mobile-nav">
+    <li><div class="you-are-here"></div>Home</li>
+    <li><div class="you-are-here"></div><a href="/blog">Blog</a></li>
+    <li><div class="you-are-here"></div>About me</li>
+    <li><div class="you-are-here"></div>Contact</li>
+    <li>
+      <div id="lang-switcher">
+        <p id="lang-en">EN</p>
+        <p>/</p>
+        <p id="lang-pl">PL</p>
+      </div>
+    </li>
+  </ul>
+    <ul id="desktop-nav">
     <li><div class="you-are-here"></div>Home</li>
     <li><div class="you-are-here"></div><a href="/blog">Blog</a></li>
     <li><div class="you-are-here"></div>About me</li>
