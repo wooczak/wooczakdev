@@ -1,12 +1,13 @@
 ---
 import LinkButton from "./LinkButton.astro";
+
+const { text, href } = Astro.props;
 ---
 
 <LinkButton
   iconName="mdi:arrow-top-left"
-  text="Go back home"
-  href="/"
-  
+  href={href || "/"}
+  text={text}
   style={{
     display: "inline-flex",
     marginBottom: "1.25rem",

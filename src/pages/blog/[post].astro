@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPaths, MarkdownInstance } from "astro";
 import Layout from "../../layouts/Layout.astro";
+import GoBackButton from "../../components/GoBackButton.astro";
 
 interface Frontmatter {
   title: string;
@@ -30,6 +31,13 @@ const { Content } = postModule;
 
 <Layout>
   <main id="blog-post-main">
-    <Content />
+    <GoBackButton text="Go back to all blog posts" href="/blog"/>
+    <Content /> 
   </main>
 </Layout>
+
+<style>
+  #blog-post-main {
+    margin-top: 62px;
+  }
+</style>

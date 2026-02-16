@@ -1,6 +1,6 @@
 ---
 import BlogPostLink from "../../components/BlogPostLink.astro";
-import GoBackHome from "../../components/GoBackHome.astro";
+import GoBackButton from "../../components/GoBackButton.astro";
 import LinkButton from "../../components/LinkButton.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
 import Layout from "../../layouts/Layout.astro";
@@ -18,7 +18,7 @@ const allTechnologies = posts.reduce((acc: string[], post) => {
 
 <Layout>
   <main id="blog-main">
-    <GoBackHome />
+    <GoBackButton text="Go back home" />
     <SectionHeading title="All blog posts" />
     <section id="blog-filters">
       <p>Filter by technology:</p>
