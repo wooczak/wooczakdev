@@ -5,9 +5,10 @@ import icon from "astro-icon";
 
 import react from "@astrojs/react";
 
-// https://astro.build/config
 export default defineConfig({
   integrations: [icon(), react()],
+  site: 'https://wooczak.github.io',
+  base: '/portfolio',
   i18n: {
     locales: ["en", "pl"],
     defaultLocale: "en",
