@@ -8,7 +8,7 @@ import react from "@astrojs/react";
 export default defineConfig({
   integrations: [icon(), react()],
   site: 'https://wooczak.github.io',
-  base: '/portfolio',
+  base: '/wooczakdev',
   i18n: {
     locales: ["en", "pl"],
     defaultLocale: "en",
