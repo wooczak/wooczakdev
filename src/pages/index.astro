@@ -9,7 +9,7 @@ import Contact from "../sections/Contact.astro";
 ---
 
 <Layout>
-  <main>
+  <main id="main-page">
     <Hero />
     <LatestBlogPosts>
       <BlogPostLink
@@ -30,3 +30,9 @@ import Contact from "../sections/Contact.astro";
     <Contact />
   </main>
 </Layout>
+
+<style>
+  #main-page {
+    margin-top: 62px;
+  }
+</style>

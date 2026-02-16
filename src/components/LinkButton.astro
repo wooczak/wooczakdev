@@ -17,7 +17,6 @@ const { href, iconName, iconSize, borderColor, text, fontWeight, style } =
 
 <a
   href={href}
-  target="_blank"
   class={`link-button ${borderColor || "primary-white"} ${fontWeight || "normal"}`}
   style={style}
 >
@@ -54,6 +53,17 @@ const { href, iconName, iconSize, borderColor, text, fontWeight, style } =
 
     &.bold {
       font-weight: 700;
+    }
+  }
+
+  @media screen and (min-width: 680px) {
+    .link-button {
+      transition: all 0.3s ease;
+      &:hover {
+        background-color: var(--primary-green);
+        color: var(--primary-black);
+        transform: translateY(-3px);
+      }
     }
   }
 </style>

@@ -269,6 +269,16 @@ nav {
     list-style: none;
     display: flex;
     gap: 3vw;
+
+    & li a {
+      display: inline-block;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: var(--primary-green);
+        transform: translateY(-5px);
+      }
+    }
   }
 
   #mobile-nav,
