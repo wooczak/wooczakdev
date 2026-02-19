@@ -1,0 +1,74 @@
+---
+import { Image } from "astro:assets";
+import AboutMeImage from "../../images/about-me-photo.webp";
+import SectionHeading from "../../components/SectionHeading.astro";
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+  <main id="about-me">
+    <section>
+      <SectionHeading title="About Me" />
+      <div id="about-me-photo-wrapper">
+        <figure>
+          <Image
+            src={AboutMeImage}
+            alt="Profile picture of Kacper Łuczak"
+            style={{
+              objectFit: "cover",
+              width: "100%",
+              height: "100%",
+            }}
+            id="about-me-photo"
+          />
+        </figure>
+        <div id="about-me-heading">
+          <h2>Kacper Luczak</h2>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Perferendis eius, reiciendis corrupti ipsum necessitatibus nihil!
+            Quam necessitatibus vitae eligendi qui?
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  #about-me {
+    margin-top: 62px;
+  }
+
+  #about-me-photo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-block: 2rem;
+    gap: 2rem;
+
+    figure {
+      height: 200px;
+      width: 500px;
+      display: block;
+      position: relative;
+
+      &::after {
+        content: "";
+        display: block;
+        height: 100%;
+        width: 100%;
+        background-image: var(--main-gradient);
+        position: absolute;
+        top: 6px;
+        right: -6px;
+        z-index: -1;
+      }
+    }
+  }
+  #about-me-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+</style>
