@@ -1,0 +1,31 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<h2 class="subsection-heading">
+  {title}
+</h2>
+
+<style>
+  .subsection-heading {
+    font-family: "Rethink Sans", sans-serif;
+    color: var(--primary-white);
+      font-size: 1.5rem;
+      font-weight: 700;
+
+      &::after {
+        content: "";
+        display: block;
+        width: 40%;
+        height: 10px;
+        background-color: var(--primary-green);
+        opacity: 0.5;
+        transform: translateY(-3px);
+      }
+    }
+  }
+</style>

@@ -3,10 +3,15 @@ import { Image } from "astro:assets";
 import AboutMeImage from "../../images/about-me-photo.webp";
 import SectionHeading from "../../components/SectionHeading.astro";
 import Layout from "../../layouts/Layout.astro";
+import GoBackButton from "../../components/GoBackButton.astro";
+import SubSectionHeading from "../../components/SubSectionHeading.astro";
+import "@glidejs/glide/dist/css/glide.core.min.css";
+import { Icon } from "astro-icon/components";
 ---
 
 <Layout>
   <main id="about-me">
+    <GoBackButton text="Go back home" />
     <section>
       <SectionHeading title="About Me" />
       <div id="about-me-photo-wrapper">
@@ -23,14 +28,59 @@ import Layout from "../../layouts/Layout.astro";
           />
         </figure>
         <div id="about-me-heading">
-          <h2>Kacper Luczak</h2>
+          <span>My name is</span>
+          <p class="name">Kacper Luczak</p>
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Perferendis eius, reiciendis corrupti ipsum necessitatibus nihil!
-            Quam necessitatibus vitae eligendi qui?
+            Full-Stack Engineer working daily with modern Web frameworks and
+            Enterprise technologies.
           </p>
         </div>
       </div>
+    </section>
+    <section>
+      <SubSectionHeading title="Experience" />
+      <article class="experience-block">
+        <p class="experience-block-date">Feb 2025 - today</p>
+        <p class="experience-block-role">
+          Full-Stack Engineer <span>// Charles River Development</span>
+        </p>
+        <p class="experience-block-description">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi
+          totam et asperiores ducimus veniam, vitae assumenda, excepturi nisi
+          architecto est voluptatem quos dicta quibusdam magnam veritatis
+          voluptatum autem ad placeat?
+        </p>
+        <div class="glide">
+          <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides">
+              <li class="glide__slide">
+                <p>TypeScript</p>
+              </li>
+              <li class="glide__slide">
+                <Icon name="star" />
+              </li>
+              <li class="glide__slide">
+                <p>React.js</p>
+              </li>
+              <li class="glide__slide">
+                <Icon name="star" />
+              </li>
+              <li class="glide__slide">
+                <p>Java</p>
+              </li>
+              <li class="glide__slide">
+                <Icon name="star" />
+              </li>
+              <li class="glide__slide">
+                <p>Java</p>
+              </li>
+              <li class="glide__slide">
+                <Icon name="star" />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
     </section>
   </main>
 </Layout>
@@ -41,17 +91,17 @@ import Layout from "../../layouts/Layout.astro";
   }
 
   #about-me-photo-wrapper {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 20% 1fr;
     align-items: center;
     margin-block: 2rem;
     gap: 2rem;
 
     figure {
-      height: 200px;
-      width: 500px;
       display: block;
       position: relative;
+      opacity: 0.3;
+      width: 300%;
 
       &::after {
         content: "";
@@ -60,8 +110,8 @@ import Layout from "../../layouts/Layout.astro";
         width: 100%;
         background-image: var(--main-gradient);
         position: absolute;
-        top: 6px;
-        right: -6px;
+        top: 2px;
+        right: -5px;
         z-index: -1;
       }
     }
@@ -70,5 +120,76 @@ import Layout from "../../layouts/Layout.astro";
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    z-index: 99;
+
+    .name {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: 0.1ch;
+    }
+
+    p:last-of-type {
+      padding-inline: 1rem;
+      font-style: italic;
+      line-height: 1.6em;
+    }
+  }
+
+  .experience-block {
+    padding-block: 1rem;
+  }
+
+  .experience-block-date {
+    font-size: 2.5rem;
+    letter-spacing: 0.1ch;
+    font-weight: 800;
+    color: var(--primary-green-disabled);
+    opacity: 0.25;
+  }
+
+  .experience-block-role {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: -0.5em;
+    line-height: 0.9em;
+    margin-left: 0.5rem;
+
+    span {
+      font-size: 0.7em;
+    }
+  }
+
+  .experience-block-description {
+    margin-left: 1rem;
+    margin-top: 1rem;
+    padding-left: 1rem;
+    border-left: 1px solid var(--primary-green);
+    max-width: 600px;
+  }
+
+  .glide {
+    margin-inline: -1rem;
+    width: 100%;
+    margin-block: 2rem;
+  }
+
+  .glide__slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 </style>
+
+<script>
+  import Glide from "@glidejs/glide";
+
+  new Glide(".glide", {
+    type: "carousel",
+    autoplay: 1 / 60,
+    startAt: 2,
+    animationDuration: window.innerWidth * 5,
+    animationTimingFunc: "linear",
+    hoverpause: true,
+    perView: 6,
+  }).mount();
+</script>
