@@ -7,6 +7,7 @@ import GoBackButton from "../../components/GoBackButton.astro";
 import SubSectionHeading from "../../components/SubSectionHeading.astro";
 import "@glidejs/glide/dist/css/glide.core.min.css";
 import { Icon } from "astro-icon/components";
+import LinkButton from "../../components/LinkButton.astro";
 ---
 
 <Layout>
@@ -39,10 +40,33 @@ import { Icon } from "astro-icon/components";
     </section>
     <section>
       <SubSectionHeading title="Experience" />
-      <article class="experience-block">
+      <div role="tablist" class="tablist">
+        <button
+          role="tab"
+          aria-selected="true"
+          aria-controls="commercial-panel"
+          id="tab-commercial"
+        >
+          Commercial
+        </button>
+        <button
+          role="tab"
+          aria-selected="false"
+          aria-controls="non-commercial-panel"
+          id="tab-non-commercial"
+        >
+          Non-commercial
+        </button>
+      </div>
+      <article
+        class="experience-block"
+        role="tabpanel"
+        id="commercial-panel"
+        aria-labelledby="tab-commercial"
+      >
         <p class="experience-block-date">Feb 2025 - today</p>
         <p class="experience-block-role">
-          Full-Stack Engineer <span>// Charles River Development</span>
+          Full-Stack Engineer<span>// Charles River Development</span>
         </p>
         <p class="experience-block-description">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi
@@ -67,6 +91,42 @@ import { Icon } from "astro-icon/components";
               </li>
               <li class="glide__slide">
                 <p>Java</p>
+              </li>
+              <li class="glide__slide">
+                <Icon name="star" />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+      <article
+        class="experience-block"
+        role="tabpanel"
+        id="non-commercial-panel"
+        aria-labelledby="tab-non-commercial"
+        hidden
+      >
+        <p class="experience-block-date">Nov 2021 - Jan 2025</p>
+        <p class="experience-block-role">
+          Front-End Engineer & Team Lead <span>// Accenture</span>
+        </p>
+        <p class="experience-block-description">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi
+          totam et asperiores ducimus veniam, vitae assumenda, excepturi nisi
+          architecto est voluptatem quos dicta quibusdam magnam veritatis
+          voluptatum autem ad placeat?
+        </p>
+        <div class="glide">
+          <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides">
+              <li class="glide__slide">
+                <p>TypeScript</p>
+              </li>
+              <li class="glide__slide">
+                <Icon name="star" />
+              </li>
+              <li class="glide__slide">
+                <p>React.js</p>
               </li>
               <li class="glide__slide">
                 <Icon name="star" />
@@ -140,7 +200,7 @@ import { Icon } from "astro-icon/components";
   }
 
   .experience-block-date {
-    font-size: 2.5rem;
+    font-size: 2rem;
     letter-spacing: 0.1ch;
     font-weight: 800;
     color: var(--primary-green-disabled);
@@ -178,18 +238,73 @@ import { Icon } from "astro-icon/components";
     align-items: center;
     justify-content: center;
   }
+
+  .tablist {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 1rem;
+    width: 100%;
+    border: 1px solid var(--primary-white);
+    margin-block: 1.25rem;
+
+    button {
+      border: none;
+      width: 100%;
+      padding: 0.5rem;
+      color: var(--primary-black);
+      background: var(--primary-green);
+      font-size: 1rem;
+      cursor: pointer;
+
+      &[aria-selected="false"] {
+        background: none;
+        color: var(--primary-white);
+      }
+    }
+  }
 </style>
 
 <script>
   import Glide from "@glidejs/glide";
 
-  new Glide(".glide", {
-    type: "carousel",
-    autoplay: 1 / 60,
-    startAt: 2,
-    animationDuration: window.innerWidth * 5,
-    animationTimingFunc: "linear",
-    hoverpause: true,
-    perView: 6,
-  }).mount();
+  document.addEventListener("DOMContentLoaded", () => {
+    const allGlides = document.querySelectorAll(
+      ".glide",
+    ) as NodeListOf<HTMLElement>;
+
+    allGlides.forEach((glide) => {
+      new Glide(glide, {
+        type: "carousel",
+        autoplay: 1 / 60,
+        startAt: 2,
+        animationDuration: window.innerWidth * 5,
+        animationTimingFunc: "linear",
+        hoverpause: true,
+        perView: 6,
+      }).mount();
+    });
+
+    const tabs = document.querySelectorAll('[role="tab"]');
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        tabs.forEach((t) => {
+          const panelId = t.getAttribute("aria-controls");
+          const panel = panelId ? document.getElementById(panelId) : null;
+
+          t.setAttribute("aria-selected", "false");
+          if (panel) panel.hidden = true;
+        });
+
+        const activePanelId = tab.getAttribute("aria-controls");
+        const activePanel = activePanelId
+          ? document.getElementById(activePanelId)
+          : null;
+
+        tab.setAttribute("aria-selected", "true");
+        if (activePanel) activePanel.hidden = false;
+      });
+    });
+  });
 </script>
