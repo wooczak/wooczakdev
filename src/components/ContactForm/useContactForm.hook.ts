@@ -47,7 +47,7 @@ export default function useContactForm() {
       Object.values(errors).some((error) => error !== "") ||
       Object.values(formState).some((value) => value === "")
     );
-  }, [errors]);
+  }, [errors, formState]);
 
   return { formState, dispatch, validateForm, errors, areErrors } as const;
 }

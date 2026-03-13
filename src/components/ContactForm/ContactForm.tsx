@@ -57,7 +57,10 @@ export default function ContactForm() {
           onChange={({ target: { value } }) =>
             dispatch({ type: "UPDATE_MESSAGE_FIELD", value })
           }
-        ></textarea>
+        />
+        {errors.message && !!formState.message && (
+          <p className={styles.error}>{errors.message}</p>
+        )}
       </div>
       <button
         className={`${styles.submitBtn} action-btn ${areErrors ? "action-btn--disabled" : ""} `}

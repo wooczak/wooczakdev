@@ -9,7 +9,7 @@ import "./Navigation.scss";
     <div class="theme-toggle-wrapper">
       <Icon name="mdi:white-balance-sunny" />
       <div class="theme-toggle">
-      <span></span>
+        <span></span>
       </div>
       <Icon name="mdi:moon-waning-crescent" />
     </div>
@@ -22,8 +22,9 @@ import "./Navigation.scss";
   <ul id="mobile-nav">
     <li><div class="you-are-here"></div><a href="/wooczakdev/">Home</a></li>
     <li><div class="you-are-here"></div><a href="/wooczakdev/blog">Blog</a></li>
-    <li><div class="you-are-here"></div><a href="/wooczakdev/about">About me</a></li>
-    <li><div class="you-are-here"></div><a href="/wooczakdev/contact">Contact</a></li>
+    <li>
+      <div class="you-are-here"></div><a href="/wooczakdev/about">About me</a>
+    </li>
     <li>
       <div id="lang-switcher">
         <p id="lang-en">EN</p>
@@ -32,11 +33,15 @@ import "./Navigation.scss";
       </div>
     </li>
   </ul>
-    <ul id="desktop-nav">
+  <ul id="desktop-nav">
     <li><div class="you-are-here"></div><a href="/wooczakdev/">Home</a></li>
     <li><div class="you-are-here"></div><a href="/wooczakdev/blog">Blog</a></li>
-    <li><div class="you-are-here"></div><a href="/wooczakdev/about">About me</a></li>
-    <li><div class="you-are-here"></div><a href="/wooczakdev/contact">Contact</a></li>
+    <li>
+      <div class="you-are-here"></div><a href="/wooczakdev/about">About me</a>
+    </li>
+    <li>
+      <div class="you-are-here"></div><a href="/wooczakdev/contact">Contact</a>
+    </li>
     <li>
       <div id="lang-switcher">
         <p id="lang-en">EN</p>
@@ -59,8 +64,20 @@ import "./Navigation.scss";
   }
 
   hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-    mobileNav.classList.toggle("active");
+    const isOpen = mobileNav.classList.contains("active");
+
+    if (isOpen) {
+      mobileNav.classList.remove("active");
+      mobileNav.classList.add("closing");
+      hamburger.classList.remove("active");
+
+      setTimeout(() => {
+        mobileNav.classList.remove("closing");
+      }, 500);
+    } else {
+      mobileNav.classList.add("active");
+      hamburger.classList.add("active");
+    }
 
     if (youAreHere) {
       switch (window.location.pathname) {
@@ -72,7 +89,9 @@ import "./Navigation.scss";
           youAreHere[1].classList.add("active");
           youAreHere[1].textContent = "You are here";
           break;
-        default:
+        case Route.ABOUT_ME:
+          youAreHere[2].classList.add("active");
+          youAreHere[2].textContent = "You are here";
           break;
       }
     }
