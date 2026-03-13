@@ -1,0 +1,56 @@
+<footer>
+  <div class="footer-grid">
+    <div class="website-map">
+      <p class="website-map-title">Website map</p>
+      <a href="/wooczakdev">Home</a>
+      <a href="/wooczakdev/about">About</a>
+      <a href="/wooczakdev/projects">Projects</a>
+      <a href="/wooczakdev/contact">Contact</a>
+    </div>
+    <div class="social-links">
+      <p class="website-map-title">Social links</p>
+      <a
+        href="https://twitter.com/yourprofile"
+        target="_blank"
+        rel="noopener noreferrer">Twitter</a
+      >
+      <a
+        href="https://github.com/yourprofile"
+        target="_blank"
+        rel="noopener noreferrer">GitHub</a
+      >
+      <a
+        href="https://linkedin.com/in/yourprofile"
+        target="_blank"
+        rel="noopener noreferrer">LinkedIn</a
+      >
+    </div>
+  </div>
+  <p>&copy; 2026 Kacper Łuczak. All rights reserved.</p>
+</footer>
+
+<style>
+  .website-map,
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    margin-block: 2rem;
+  }
+
+  .website-map-title {
+    font-weight: 600;
+    font-size: 1.25rem;
+  }
+
+  footer {
+    border-top: 1px solid var(--primary-gray);
+  }
+</style>

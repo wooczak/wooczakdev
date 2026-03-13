@@ -98,14 +98,6 @@ import LinkButton from "../../components/LinkButton.astro";
             </ul>
           </div>
         </div>
-      </article>
-      <article
-        class="experience-block"
-        role="tabpanel"
-        id="non-commercial-panel"
-        aria-labelledby="tab-non-commercial"
-        hidden
-      >
         <p class="experience-block-date">Nov 2021 - Jan 2025</p>
         <p class="experience-block-role">
           Front-End Engineer & Team Lead <span>// Accenture</span>
@@ -139,6 +131,61 @@ import LinkButton from "../../components/LinkButton.astro";
               </li>
             </ul>
           </div>
+        </div>
+      </article>
+      <article
+        class="experience-block"
+        role="tabpanel"
+        id="non-commercial-panel"
+        aria-labelledby="tab-non-commercial"
+        hidden
+      >
+        <p class="experience-block-date">2019 - 2021</p>
+        <p class="experience-block-role">
+          Freelance Web Developer <span>// Self-employed</span>
+        </p>
+        <p class="experience-block-description">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi
+          totam et asperiores ducimus veniam, vitae assumenda, excepturi nisi
+          architecto est voluptatem quos dicta quibusdam magnam veritatis
+          voluptatum autem ad placeat?
+        </p>
+        <div class="glide">
+          <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides">
+              <li class="glide__slide">
+                <p>JavaScript</p>
+              </li>
+              <li class="glide__slide">
+                <Icon name="star" />
+              </li>
+              <li class="glide__slide">
+                <p>React.js</p>
+              </li>
+              <li class="glide__slide">
+                <Icon name="star" />
+              </li>
+              <li class="glide__slide">
+                <p>PHP</p>
+              </li>
+              <li class="glide__slide">
+                <Icon name="star" />
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <ul class="experience-link-list">
+            <li>
+              <LinkButton text="See code on GitHub" iconName="mdi:github" />
+            </li>
+            <li>
+              <LinkButton
+                text="See my job history on LinkedIn"
+                iconName="mdi:briefcase"
+              />
+            </li>
+          </ul>
         </div>
       </article>
     </section>
@@ -262,6 +309,14 @@ import LinkButton from "../../components/LinkButton.astro";
         color: var(--primary-white);
       }
     }
+  }
+
+  .experience-link-list {
+    list-style: none;
+  }
+
+  .experience-link-list li {
+    display: inline-block; margin-bottom: 0.5rem;
   }
 </style>
 
